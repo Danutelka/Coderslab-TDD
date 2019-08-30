@@ -22,9 +22,11 @@ def rok_przestepny(rok):
 
 #zad 3 
 def word_wrap(string, length):
-    print((string[0 : length]) + "..."
+    return((string[0 : length]) + "..."
     
 # print(buzz_fizz(19))
 #print(rok_przestepny(2020))
 #print(word_wrap("wszyscy mamy żle w głowach, że żyjemy", 3))
 print(word_wrap("wszyscy mamy żle w głowach, że żyjemy", 14))
+
+print(word_wrap("hello word"), 3)

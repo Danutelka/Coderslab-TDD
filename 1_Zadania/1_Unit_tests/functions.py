@@ -1,7 +1,13 @@
 from datetime import datetime
 
+# zad 1
+#def div(a, b):
+#    return a / b
+# najpierw int później po kolejnych testach zmiana na float
 
 def div(a, b):
+    a = float(a)
+    b = float(b)
     return a / b
 
 
@@ -16,8 +22,15 @@ def analyze_pesel(pesel):
     validate = 10 - pesel_modulo
     if validate == 10:
         validate = 0
-    gender = "male" if int(pesel[-2]) % 2 == 0 else "female"
-    birth_date = datetime(int("19" + pesel[0:2]), int(pesel[2:4]),int(pesel[4:6]))
+    gender = "female" if int(pesel[-2]) % 2 == 0 else "male"
+    month = int(pesel[2:4])
+    day = int(pesel[4:6]) 
+    if month > 12:
+        year = int("20" + pesel[0:2])
+        month = month - 20
+    else:
+        year = int("19" + pesel[0:2])
+    birth_date = datetime(year, month, day)
     result = {
         "pesel": pesel,
         "valid": validate == int(pesel[-1]),
